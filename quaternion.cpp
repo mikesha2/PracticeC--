@@ -53,8 +53,6 @@ quaternion<T> operator*(const quaternion<T>& b, float a) {
     }
 }
 
-
-
 void testQuaternionBasis() {
     std::cout << "Running quaternion basis multiplication..." << std::endl;
     dQuat basis[4];
