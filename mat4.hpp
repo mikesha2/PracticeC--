@@ -115,16 +115,6 @@ namespace mat4 {
     }
 
     template <typename T>
-    void zero(mat4<T>& ret) {
-        for (uint16_t i = 0; i < 3; i++) {
-            for (uint16_t j = 0; j < 4; j++) {
-                ret.M[i][j] = 0;
-            }
-        }
-        return ret;
-    }
-
-    template <typename T>
     mat4<T>& e_ij(int I, int J) {
         mat4<T> ret;
         for (uint16_t i = 0; i < 3; i++) {
