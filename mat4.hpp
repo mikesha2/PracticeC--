@@ -143,7 +143,6 @@ namespace mat4 {
 
     template <typename T>
     void id(mat4<T>& ret) {
-        mat4<T> ret;
         for (uint16_t i = 0; i < 3; i++) {
             for (uint16_t j = 0; j < 3; j++) {
                 ret.M[i][j] = 0;
@@ -151,7 +150,6 @@ namespace mat4 {
             ret.M[i][i] = 1;
             ret.M[3][i] = 0;
         }
-        return ret;
     }
 
     void testMat4Add() {
