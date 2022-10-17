@@ -5,7 +5,6 @@
 
 namespace quaternion {
 
-
     template <typename T>
     struct quaternion {
         T real, x, y, z;

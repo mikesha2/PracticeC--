@@ -3,4 +3,5 @@
 
 void main() {
     quaternion::testQuaternionBasis();
+    mat4::testMat4Add();
 }

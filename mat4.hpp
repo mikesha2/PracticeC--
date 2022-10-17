@@ -13,11 +13,24 @@ namespace mat4 {
     typedef mat4<float> fmat4;
 
     template <typename T>
-    ostream& cout<<
+    std::ostream& operator<<(std::ostream& os, const mat4<T>& a) {
+        os << 'R:\n';
+        for (uint16_t i = 0; i < 3; i++) {
+            for (uint16_t j = 0; j < 3; j++) {
+                os << a.M[i][j] << ' ';
+            }
+            os << '\n';
+        }
+        os << 'T:\n';
+        for (uint16_t i = 0; i < 3; i++) {
+            os << a.M[3][i] << ' ';
+        }
+        return os;
+    }
 
     template <typename T>
     mat4<T> operator+(const mat4<T>& a, const mat4<T>& b) {
-        mat4 ret;
+        mat4<T> ret;
         for (uint16_t i = 0; i < 3; i++) {
             for (uint16_t j = 0; j < 4; j++) {
                 ret.M[i][j] = a.M[i][j] + b.M[i][j];
@@ -38,7 +51,7 @@ namespace mat4 {
 
     template <typename T>
     mat4<T> operator-(const mat4<T>& a, const mat4<T>& b) {
-        mat4 ret;
+        mat4<T> ret;
         for (uint16_t i = 0; i < 3; i++) {
             for (uint16_t j = 0; j < 4; j++) {
                 ret.M[i][j] = a.M[i][j] - b.M[i][j];
@@ -59,7 +72,7 @@ namespace mat4 {
 
     template <typename T>
     mat4<T> operator*(const mat4<T>& a, const mat4<T>& b) {
-        mat4 ret;
+        mat4<T> ret;
 
         for (uint16_t i = 0; i < 3; i++) {
             for (uint16_t j = 0; j < 3; j++) {
@@ -102,8 +115,7 @@ namespace mat4 {
     }
 
     template <typename T>
-    mat4<T>& zero() {
-        mat4<T> ret;
+    void zero(mat4<T>& ret) {
         for (uint16_t i = 0; i < 3; i++) {
             for (uint16_t j = 0; j < 4; j++) {
                 ret.M[i][j] = 0;
@@ -140,7 +152,7 @@ namespace mat4 {
     }
 
     template <typename T>
-    mat4<T>& id() {
+    void id(mat4<T>& ret) {
         mat4<T> ret;
         for (uint16_t i = 0; i < 3; i++) {
             for (uint16_t j = 0; j < 3; j++) {
@@ -152,13 +164,13 @@ namespace mat4 {
         return ret;
     }
 
-    void testQuaternionBasis() {
+    void testMat4Add() {
         std::cout << "Running matrix multiplication..." << std::endl;
         dmat4 A, B;
 
-        A = zero<double>();
-        B = id<double>();
-
+        zero<double>(A);
+        id<double>(B);
+        std::cout << A + B;
     }
 }
 
