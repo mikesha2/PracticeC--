@@ -1,12 +1,14 @@
 #ifndef QUATERNION_HPP
 #define QUATERNION_HPP
 
+#include <iostream>
+
 template <typename T>
 struct quaternion {
     T real, x, y, z;
 };
 
-typedef quaternion<double_t> dQuat;
+typedef quaternion<double> dQuat;
 
 template <typename T>
 std::ostream& operator<<(std::ostream& os, const quaternion<T>& a);

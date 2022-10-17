@@ -1,5 +1,4 @@
 #include "quaternion.hpp"
-#include <iostream>
 
 template <typename T>
 std::ostream& operator<<(std::ostream& os, const quaternion<T>& a) {
