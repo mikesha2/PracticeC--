@@ -3,38 +3,42 @@
 
 #include <iostream>
 
-template <typename T>
-struct quaternion {
-    T real, x, y, z;
-};
+namespace quaternion {
 
-typedef quaternion<double> dQuat;
 
-template <typename T>
-std::ostream& operator<<(std::ostream& os, const quaternion<T>& a);
+    template <typename T>
+    struct quaternion {
+        T real, x, y, z;
+    };
 
-template <typename T>
-quaternion<T> operator+(const quaternion<T>& a, const quaternion<T>& b);
+    typedef quaternion<double> dQuat;
 
-template <typename T>
-quaternion<T> operator-(const quaternion<T>& a, const quaternion<T>& b);
+    template <typename T>
+    std::ostream& operator<<(std::ostream& os, const quaternion<T>& a);
 
-template <typename T>
-quaternion<T> operator*(const quaternion<T>& a, const quaternion<T>& b);
+    template <typename T>
+    quaternion<T> operator+(const quaternion<T>& a, const quaternion<T>& b);
 
-template <typename T>
-quaternion<T> operator*(double a, const quaternion<T>& b);
+    template <typename T>
+    quaternion<T> operator-(const quaternion<T>& a, const quaternion<T>& b);
 
-template <typename T>
-quaternion<T> operator*(const quaternion<T>& b, double a);
+    template <typename T>
+    quaternion<T> operator*(const quaternion<T>& a, const quaternion<T>& b);
 
-template <typename T>
-quaternion<T> operator*(float a, const quaternion<T>& b);
+    template <typename T>
+    quaternion<T> operator*(double a, const quaternion<T>& b);
 
-template <typename T>
-quaternion<T> operator*(const quaternion<T>& b, float a);
+    template <typename T>
+    quaternion<T> operator*(const quaternion<T>& b, double a);
 
-void testQuaternionBasis();
+    template <typename T>
+    quaternion<T> operator*(float a, const quaternion<T>& b);
 
+    template <typename T>
+    quaternion<T> operator*(const quaternion<T>& b, float a);
+
+    void testQuaternionBasis();
+
+}
 
 #endif /* QUATERNION_HPP */

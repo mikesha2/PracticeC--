@@ -2,5 +2,5 @@
 //#include "mat4.h"
 
 void main() {
-    testQuaternionBasis();
+    quaternion::testQuaternionBasis();
 }
