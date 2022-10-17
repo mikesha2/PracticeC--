@@ -1,9 +1,5 @@
+#include "quaternion.hpp"
 #include <iostream>
-
-template <typename T>
-struct quaternion {
-    T real, x, y, z;
-};
 
 template <typename T>
 std::ostream& operator<<(std::ostream& os, const quaternion<T>& a) {
@@ -58,7 +54,7 @@ quaternion<T> operator*(const quaternion<T>& b, float a) {
     }
 }
 
-typedef quaternion<double_t> dQuat;
+
 
 void testQuaternionBasis() {
     std::cout << "Running quaternion basis multiplication..." << std::endl;
