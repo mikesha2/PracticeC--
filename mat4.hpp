@@ -14,16 +14,16 @@ namespace mat4 {
 
     template <typename T>
     std::ostream& operator<<(std::ostream& os, const mat4<T>& a) {
-        os << 'R:\n';
+        os << "R:\n";
         for (uint16_t i = 0; i < 3; i++) {
             for (uint16_t j = 0; j < 3; j++) {
                 os << a.M[i][j] << ' ';
             }
             os << '\n';
         }
-        os << 'T:\n';
+        os << "T:\n";
         for (uint16_t i = 0; i < 3; i++) {
-            os << a.M[3][i] << ' ';
+            os << a.M[i][3] << ' ';
         }
         return os;
     }
@@ -148,7 +148,7 @@ namespace mat4 {
                 ret.M[i][j] = 0;
             }
             ret.M[i][i] = 1;
-            ret.M[3][i] = 0;
+            ret.M[i][3] = 0;
         }
     }
 
@@ -158,7 +158,9 @@ namespace mat4 {
 
         zero<double>(A);
         id<double>(B);
-        std::cout << A + B;
+        dmat4 C = A + B;
+        std::cout << C;
+
     }
 }
 
