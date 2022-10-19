@@ -6,7 +6,7 @@
 namespace mat4 {
     template <typename T>
     struct mat4 {
-        T M[3][4];
+        T M[4][3];
     };
     
     typedef mat4<double> dmat4;
@@ -23,7 +23,7 @@ namespace mat4 {
         }
         os << "T:\n";
         for (uint16_t i = 0; i < 3; i++) {
-            os << a.M[i][3] << ' ';
+            os << a.M[3][i] << ' ';
         }
         return os;
     }
@@ -31,8 +31,8 @@ namespace mat4 {
     template <typename T>
     mat4<T> operator+(const mat4<T>& a, const mat4<T>& b) {
         mat4<T> ret;
-        for (uint16_t i = 0; i < 3; i++) {
-            for (uint16_t j = 0; j < 4; j++) {
+        for (uint16_t i = 0; i < 4; i++) {
+            for (uint16_t j = 0; j < 3; j++) {
                 ret.M[i][j] = a.M[i][j] + b.M[i][j];
             }
         }
@@ -41,8 +41,8 @@ namespace mat4 {
 
     template <typename T>
     mat4<T>& operator+=(const mat4<T>& a, const mat4<T>& b) {
-        for (uint16_t i = 0; i < 3; i++) {
-            for (uint16_t j = 0; j < 4; j++) {
+        for (uint16_t i = 0; i < 4; i++) {
+            for (uint16_t j = 0; j < 3; j++) {
                 a.M[i][j] = a.M[i][j] + b.M[i][j];
             }
         }
@@ -52,8 +52,8 @@ namespace mat4 {
     template <typename T>
     mat4<T> operator-(const mat4<T>& a, const mat4<T>& b) {
         mat4<T> ret;
-        for (uint16_t i = 0; i < 3; i++) {
-            for (uint16_t j = 0; j < 4; j++) {
+        for (uint16_t i = 0; i < 4; i++) {
+            for (uint16_t j = 0; j < 3; j++) {
                 ret.M[i][j] = a.M[i][j] - b.M[i][j];
             }
         }
@@ -62,8 +62,8 @@ namespace mat4 {
 
     template <typename T>
     mat4<T>& operator-=(const mat4<T>& a, const mat4<T>& b) {
-        for (uint16_t i = 0; i < 3; i++) {
-            for (uint16_t j = 0; j < 4; j++) {
+        for (uint16_t i = 0; i < 4; i++) {
+            for (uint16_t j = 0; j < 3; j++) {
                 a.M[i][j] = a.M[i][j] - b.M[i][j];
             }
         }
@@ -128,17 +128,17 @@ namespace mat4 {
 
     template <typename T>
     mat4<T>& x_hat() {
-        return e_ij(3, 0);
+        return e_ij<T>(3, 0);
     }
 
     template <typename T>
     mat4<T>& y_hat() {
-        return e_ij(3, 1);
+        return e_ij<T>(3, 1);
     }
 
     template <typename T>
     mat4<T>& z_hat() {
-        return e_ij(3, 2);
+        return e_ij<T>(3, 2);
     }
 
     template <typename T>
@@ -148,7 +148,7 @@ namespace mat4 {
                 ret.M[i][j] = 0;
             }
             ret.M[i][i] = 1;
-            ret.M[i][3] = 0;
+            ret.M[3][i] = 0;
         }
     }
 

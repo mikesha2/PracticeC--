@@ -41,28 +41,28 @@ namespace quaternion {
     quaternion<T> operator*(double a, const quaternion<T>& b) {
         return {
             a * b.real,  a * b.x, a * b.y, a * b.z
-        }
+        };
     }
 
     template <typename T>
     quaternion<T> operator*(const quaternion<T>& b, double a) {
         return {
             a * b.real,  a * b.x, a * b.y, a * b.z
-        }
+        };
     }
 
     template <typename T>
     quaternion<T> operator*(float a, const quaternion<T>& b) {
         return {
             a * b.real,  a * b.x, a * b.y, a * b.z
-        }
+        };
     }
 
     template <typename T>
     quaternion<T> operator*(const quaternion<T>& b, float a) {
         return {
             a * b.real,  a * b.x, a * b.y, a * b.z
-        }
+        };
     }
 
     void testQuaternionBasis() {
