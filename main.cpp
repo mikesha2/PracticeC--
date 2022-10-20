@@ -1,6 +1,6 @@
 #include "quaternion.hpp"
 #include "mat4.hpp"
-#include "vec4.hpp"
+#include "vec3.hpp"
 
 int main() {
     quaternion::testQuaternionBasis();
